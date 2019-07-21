@@ -7,17 +7,25 @@ buildscript {
 
 
         //region libraries' version
+
         appcompat_version = '1.0.2'
         xcore_version = '1.0.1'
         xconstraint_layout_version = '1.1.3'
-        contentful_sdk_version = '9.0.1'
+        contentful_sdk_version = '10.4.0'
         rxandroid_version = '2.0.1'
+        cardview_version = '1.0.0'
+        xsupport_version = '1.0.0'
+        glide_version = '4.9.0'
+        viewmodel_version = '2.2.0-alpha02'
+
         //endregion
 
         //region test libraries version
+
         junit_version = '4.12'
         test_runner_version = '1.1.1'
         espresso_core_version = '3.1.1'
+
         //endregion
     }
 

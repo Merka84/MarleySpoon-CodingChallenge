@@ -20,6 +20,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -30,6 +39,13 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$xconstraint_layout_version"
     implementation "com.contentful.java:java-sdk:$contentful_sdk_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation "androidx.cardview:cardview:$xsupport_version"
+    implementation "androidx.recyclerview:recyclerview:$xsupport_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$viewmodel_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$viewmodel_version"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
     testImplementation "junit:junit:$junit_version"
 
