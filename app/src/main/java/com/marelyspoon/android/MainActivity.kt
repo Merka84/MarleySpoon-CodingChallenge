@@ -1,36 +1,33 @@
 package com.marelyspoon.android
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.marelyspoon.android.databinding.ListViewBinding
-import com.marelyspoon.android.viewmodel.RecipeListViewModel
-import com.marelyspoon.android.views.RecipeListAdapter
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.Fragment
+import com.marelyspoon.android.databinding.MainActivityBinding
 import com.marelyspoon.android.model.Recipe
 
 
 class MainActivity : AppCompatActivity() {
-    private var viewModel : RecipeListViewModel? = null
-    private var adapter : RecipeListAdapter? = null
 
+    private lateinit var binding: MainActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.main_activity)
+        createFragment(RecipeListFragment(), binding.container.id)
 
-        val binding: ListViewBinding = DataBindingUtil.setContentView(this, R.layout.list_view)
-        binding.recipeList.layoutManager = LinearLayoutManager(this)
-        binding.loadingProgress.visibility = View.VISIBLE
+    }
 
-        viewModel = ViewModelProviders.of(this).get(RecipeListViewModel::class.java)
-        viewModel?.recipes?.observe(this, Observer<List<Recipe>>{
-            adapter = RecipeListAdapter(it)
-            binding.recipeList.adapter = adapter
-            binding.loadingProgress.visibility = View.GONE
-        })
+    fun onItemSelect(recipe: Recipe) {
+        val fragment = RecipeDetailFragment()
+        fragment.setFragmentArg(recipe)
+        createFragment(fragment, binding.container.id)
+    }
 
+    private fun createFragment(fragment: Fragment, resId: Int) {
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(resId, fragment).addToBackStack(fragment.tag)
+        fragmentTransaction.commit()
     }
 }

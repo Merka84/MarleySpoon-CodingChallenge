@@ -5,10 +5,12 @@ package com.marelyspoon.android.model
  * @author Akram Shokri
  */
 
+import android.content.Context
 import com.contentful.java.cda.CDAAsset
 import com.contentful.java.cda.CDAEntry
 import com.contentful.java.cda.TransformQuery.ContentfulEntryModel
 import com.contentful.java.cda.TransformQuery.ContentfulField
+import io.noties.markwon.Markwon
 
 @ContentfulEntryModel("recipe")
 data class Recipe(@ContentfulField val title: String,
@@ -25,6 +27,11 @@ data class Recipe(@ContentfulField val title: String,
             return "https://${photo.url()}"
         }
         return photo.url()
+    }
+
+    fun getFormattedDescription(context: Context) : String {
+        val markwon = Markwon.create(context).toMarkdown(description).toString()
+        return markwon
     }
 }
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-        <variable name="recipe"
-                  type="com.marelyspoon.android.model.Recipe"/>
+        <variable name="viewModel"
+                  type="com.marelyspoon.android.viewmodel.SingleRecipeViewModel"/>
+        <variable name="handler" type="com.marelyspoon.android.MainActivity"/>
     </data>
     <androidx.cardview.widget.CardView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +15,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp">
+            android:layout_marginLeft="8dp"
+            android:onClick="@{(view) -> handler.onItemSelect(viewModel.recipe)}">
 
         <LinearLayout
                 android:orientation="horizontal"
@@ -28,7 +30,8 @@
                     android:layout_width="120dp"
                     android:layout_margin="4dp"
                     android:layout_height="wrap_content"
-                    imageUrl="@{recipe.getImageUrl()}"
+                    imageUrl="@{viewModel.recipe.getImageUrl()}"
+                    android:onClick="@{(view) -> handler.onItemSelect(viewModel.recipe)}"
                     android:src="@drawable/ic_launcher_background"/>
 
             <FrameLayout android:layout_width="match_parent"
@@ -46,7 +49,7 @@
                         android:lines="3"
                         android:layout_gravity="center_horizontal"
                         style="@android:style/TextAppearance.Small"
-                        android:text="@{recipe.title}"/>
+                        android:text="@{viewModel.recipe.title}"/>
             </FrameLayout>
         </LinearLayout>
 

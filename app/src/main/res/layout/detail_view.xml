@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <variable name="viewModel"
+                  type="com.marelyspoon.android.viewmodel.SingleRecipeViewModel"/>
+
+        <variable name="context"
+                  type="android.content.Context"/>
     </data>
-    <androidx.cardview.widget.CardView
+
+    <ScrollView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="6dp">
+            android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -22,17 +27,19 @@
                     android:layout_marginTop="8dp"
                     app:layout_constraintLeft_toLeftOf="@id/guideline_left"
                     app:layout_constraintRight_toRightOf="@id/guideline_right"
+                    imageUrl="@{viewModel.recipe.getImageUrl()}"
                     android:src="@drawable/ic_launcher_background"/>
 
             <TextView
                     android:id="@+id/recipe_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/recipe_image"
                     app:layout_constraintLeft_toLeftOf="@id/guideline_left"
+                    app:layout_constraintRight_toRightOf="@+id/guideline_right"
                     style="@android:style/TextAppearance.Medium"
                     android:layout_marginTop="16dp"
-                    android:text="@string/app_name"/>
+                    android:text="@{viewModel.recipe.title}"/>
 
 
             <TextView
@@ -68,9 +75,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/recipe_chef_label"
                     app:layout_constraintLeft_toLeftOf="@id/guideline_left"
                     app:layout_constraintRight_toRightOf="@+id/guideline_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     style="@android:style/TextAppearance.Small"
                     android:layout_marginTop="16dp"
-                    android:text="@string/sample_text"/>
+                    android:layout_marginBottom="16dp"
+                    android:text="@{viewModel.recipe.getFormattedDescription(context)}"/>
 
             <androidx.constraintlayout.widget.Guideline
                     android:layout_width="wrap_content"
@@ -86,5 +95,5 @@
                     app:layout_constraintGuide_end="16dp"
                     android:orientation="vertical"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 </layout>
