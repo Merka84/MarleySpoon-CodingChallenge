@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MarelySpoonCodeChallenge</string>
+    <string name="by">By:</string>
+    <string name="sample_text">sample</string>
 </resources>
