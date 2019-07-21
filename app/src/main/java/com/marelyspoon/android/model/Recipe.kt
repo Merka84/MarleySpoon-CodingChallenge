@@ -14,7 +14,7 @@ import io.noties.markwon.Markwon
 
 @ContentfulEntryModel("recipe")
 data class Recipe(@ContentfulField val title: String,
-                  @ContentfulField val tags: List<String>,
+                  @ContentfulField val tags: List<CDAEntry>,
                   @ContentfulField val chef: CDAEntry,
                   @ContentfulField val photo: CDAAsset,
                   @ContentfulField val description: String,
@@ -30,8 +30,21 @@ data class Recipe(@ContentfulField val title: String,
     }
 
     fun getFormattedDescription(context: Context) : String {
-        val markwon = Markwon.create(context).toMarkdown(description).toString()
-        return markwon
+        return Markwon.create(context).toMarkdown(description).toString()
     }
+
+    fun getFormattedTag() : String{
+        var res = ""
+        val key = "name"
+        if(tags == null){
+            return ""
+        }
+
+        for(i in 0 until tags.size) {
+            res += "#${tags[i].getField<String>(key)}   " //3 spaces at the end of each tag to separate it form the next one
+        }
+        return res
+    }
+
 }
 
