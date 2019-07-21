@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <import type="android.view.View"/>
         <variable name="viewModel"
                   type="com.marelyspoon.android.viewmodel.SingleRecipeViewModel"/>
 
@@ -41,41 +42,27 @@
                     android:layout_marginTop="16dp"
                     android:text="@{viewModel.recipe.title}"/>
 
-
-            <TextView
-                    android:id="@+id/recipe_chef_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/recipe_title"
-                    app:layout_constraintLeft_toLeftOf="@id/guideline_left"
-                    style="@android:style/TextAppearance.Small"
-                    android:textStyle="italic"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/by"/>
-
             <TextView
                     android:id="@+id/recipe_chef_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/recipe_title"
-                    app:layout_constraintLeft_toRightOf="@id/recipe_chef_label"
+                    app:layout_constraintLeft_toLeftOf="@id/guideline_left"
                     app:layout_constraintRight_toRightOf="@+id/guideline_right"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
                     style="@android:style/TextAppearance.Small"
-                    android:textStyle="italic|bold"
                     android:layout_marginTop="16dp"
-                    android:text="@string/chef"/>
-
+                    android:visibility="@{viewModel.recipe.getFormattedChefName().isEmpty() ? View.GONE : View.VISIBLE}"
+                    android:text="@{viewModel.recipe.getFormattedChefName()}"/>
 
             <TextView
                     android:id="@+id/recipe_description"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/recipe_chef_label"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_chef_name"
                     app:layout_constraintLeft_toLeftOf="@id/guideline_left"
                     app:layout_constraintRight_toRightOf="@+id/guideline_right"
                     style="@android:style/TextAppearance.Small"
+                    android:lineSpacingExtra="4dp"
                     android:layout_marginTop="16dp"
                     android:text="@{viewModel.recipe.getFormattedDescription(context)}"/>
 

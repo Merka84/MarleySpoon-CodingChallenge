@@ -15,12 +15,12 @@ import io.noties.markwon.Markwon
 @ContentfulEntryModel("recipe")
 data class Recipe(@ContentfulField val title: String,
                   @ContentfulField val tags: List<CDAEntry>,
-                  @ContentfulField val chef: CDAEntry,
+                  @ContentfulField var chef: String,
                   @ContentfulField val photo: CDAAsset,
                   @ContentfulField val description: String,
                   @ContentfulField val calories: Double
                   ) {
-  constructor() : this("",  ArrayList(),  CDAEntry(), CDAAsset(), "",0.0)
+  constructor() : this("",  ArrayList(),  "", CDAAsset(), "",0.0)
 
     fun getImageUrl() :String{
         if(!photo.url().contains("http")) {
@@ -33,7 +33,7 @@ data class Recipe(@ContentfulField val title: String,
         return Markwon.create(context).toMarkdown(description).toString()
     }
 
-    fun getFormattedTag() : String{
+    fun getFormattedTag(): String{
         var res = ""
         val key = "name"
         if(tags == null){
@@ -44,6 +44,13 @@ data class Recipe(@ContentfulField val title: String,
             res += "#${tags[i].getField<String>(key)}   " //3 spaces at the end of each tag to separate it form the next one
         }
         return res
+    }
+
+    fun getFormattedChefName(): String{
+        if(chef != null){
+            return "By: Chef ${chef}"
+        }
+        return ""
     }
 
 }
