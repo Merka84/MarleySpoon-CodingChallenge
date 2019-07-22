@@ -1,4 +1,4 @@
-package com.marelyspoon.android
+package com.marleyspoon.android
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.marelyspoon.android.databinding.ListViewBinding
-import com.marelyspoon.android.model.Recipe
-import com.marelyspoon.android.viewmodel.RecipeListViewModel
-import com.marelyspoon.android.views.RecipeListAdapter
+import com.marleyspoon.android.databinding.ListViewBinding
+import com.marleyspoon.android.model.Recipe
+import com.marleyspoon.android.viewmodel.RecipeListViewModel
+import com.marleyspoon.android.views.RecipeListAdapter
 
 /**
  * Created on 2019-07-22, 00:39.

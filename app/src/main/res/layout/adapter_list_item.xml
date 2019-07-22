@@ -2,8 +2,8 @@
 <layout>
     <data>
         <variable name="viewModel"
-                  type="com.marelyspoon.android.viewmodel.SingleRecipeViewModel"/>
-        <variable name="handler" type="com.marelyspoon.android.MainActivity"/>
+                  type="com.marleyspoon.android.viewmodel.SingleRecipeViewModel"/>
+        <variable name="handler" type="com.marleyspoon.android.MainActivity"/>
     </data>
     <androidx.cardview.widget.CardView
             xmlns:android="http://schemas.android.com/apk/res/android"

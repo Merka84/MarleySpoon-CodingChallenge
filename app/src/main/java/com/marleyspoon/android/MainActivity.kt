@@ -1,11 +1,12 @@
-package com.marelyspoon.android
+package com.marleyspoon.android
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.marelyspoon.android.databinding.MainActivityBinding
-import com.marelyspoon.android.model.Recipe
+import com.marleyspoon.android.databinding.MainActivityBinding
+
+import com.marleyspoon.android.model.Recipe
 
 
 class MainActivity : AppCompatActivity() {

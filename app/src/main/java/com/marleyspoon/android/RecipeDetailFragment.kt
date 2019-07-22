@@ -1,4 +1,4 @@
-package com.marelyspoon.android
+package com.marleyspoon.android
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.marelyspoon.android.databinding.DetailViewBinding
-import com.marelyspoon.android.model.Recipe
-import com.marelyspoon.android.viewmodel.SingleRecipeViewModel
+import com.marleyspoon.android.databinding.DetailViewBinding
+import com.marleyspoon.android.model.Recipe
+import com.marleyspoon.android.viewmodel.SingleRecipeViewModel
 
 /**
  * Created on 2019-07-22, 00:28.

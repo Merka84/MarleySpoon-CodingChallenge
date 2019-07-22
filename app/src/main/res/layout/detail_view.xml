@@ -3,7 +3,7 @@
     <data>
         <import type="android.view.View"/>
         <variable name="viewModel"
-                  type="com.marelyspoon.android.viewmodel.SingleRecipeViewModel"/>
+                  type="com.marleyspoon.android.viewmodel.SingleRecipeViewModel"/>
 
         <variable name="context"
                   type="android.content.Context"/>

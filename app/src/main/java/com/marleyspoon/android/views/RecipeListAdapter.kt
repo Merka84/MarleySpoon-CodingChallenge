@@ -1,13 +1,13 @@
-package com.marelyspoon.android.views
+package com.marleyspoon.android.views
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.marelyspoon.android.MainActivity
-import com.marelyspoon.android.databinding.AdapterListItemBinding
-import com.marelyspoon.android.model.Recipe
-import com.marelyspoon.android.viewmodel.SingleRecipeViewModel
+import com.marleyspoon.android.MainActivity
+import com.marleyspoon.android.databinding.AdapterListItemBinding
+import com.marleyspoon.android.model.Recipe
+import com.marleyspoon.android.viewmodel.SingleRecipeViewModel
 
 
 /**

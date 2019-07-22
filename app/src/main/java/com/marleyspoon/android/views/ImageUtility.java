@@ -1,4 +1,4 @@
-package com.marelyspoon.android.views;
+package com.marleyspoon.android.views;
 
 import android.widget.ImageView;
 import androidx.databinding.BindingAdapter;

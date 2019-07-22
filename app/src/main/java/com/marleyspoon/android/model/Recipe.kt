@@ -1,4 +1,4 @@
-package com.marelyspoon.android.model
+package com.marleyspoon.android.model
 
 /**
  * Created on 2019-07-21, 17:04.

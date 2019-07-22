@@ -1,6 +1,6 @@
-package com.marelyspoon.android
+package com.marleyspoon.android
 
-import com.marelyspoon.android.model.network.ContentfulHelper
+import com.marleyspoon.android.model.network.ContentfulHelper
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

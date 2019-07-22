@@ -1,4 +1,4 @@
-package com.marelyspoon.android
+package com.marleyspoon.android
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

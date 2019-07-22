@@ -1,11 +1,11 @@
-package com.marelyspoon.android.model.network
+package com.marleyspoon.android.model.network
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.contentful.java.cda.CDAClient
 import com.contentful.java.cda.CDAEntry
 import com.contentful.java.cda.LocalizedResource
-import com.marelyspoon.android.model.Recipe
+import com.marleyspoon.android.model.Recipe
 import java.util.concurrent.Executors
 
 
@@ -15,13 +15,12 @@ import java.util.concurrent.Executors
  */
 
 class ContentfulHelper {
-    val SPACE_ID = "kk2bw5ojx476"
-    val TOKEN = "7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c"
-    val client = contentDeliveryClient()
-    val executor = Executors.newSingleThreadExecutor()
+    private val SPACE_ID = "kk2bw5ojx476"
+    private val TOKEN = "7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c"
+    private val client = contentDeliveryClient()
+    private val executor = Executors.newSingleThreadExecutor()
 
-    var recipeLiveData: MutableLiveData<List<Recipe>> = MutableLiveData()
-        private set
+    private var recipeLiveData: MutableLiveData<List<Recipe>> = MutableLiveData()
 
     fun contentDeliveryClient(): CDAClient {
         return CDAClient.builder()
