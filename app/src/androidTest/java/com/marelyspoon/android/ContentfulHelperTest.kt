@@ -1,6 +1,7 @@
 package com.marelyspoon.android
 
 import com.marelyspoon.android.model.network.ContentfulHelper
+import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -17,6 +18,14 @@ class ContentfulHelperTest {
     fun checkFetchMethod() {
 
         val contentHelper = ContentfulHelper()
-        contentHelper.fetchAllRecipes()
+        val data = contentHelper.callContentful()
+
+        Assert.assertNotNull(data)
+        Assert.assertTrue(data?.size != 0)
+        Assert.assertNotNull(data?.get(0))
+        Assert.assertNotNull(data?.get(0)?.title)
     }
+
+
 }
+
