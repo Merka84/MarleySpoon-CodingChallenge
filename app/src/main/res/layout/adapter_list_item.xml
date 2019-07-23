@@ -30,7 +30,7 @@
                     android:layout_width="120dp"
                     android:layout_margin="4dp"
                     android:layout_height="wrap_content"
-                    imageUrl="@{viewModel.recipe.getImageUrl()}"
+                    imageUrl="@{viewModel.recipe.photoUrl}"
                     android:onClick="@{(view) -> handler.onItemSelect(viewModel.recipe)}"
                     android:src="@drawable/ic_launcher_background"/>
 

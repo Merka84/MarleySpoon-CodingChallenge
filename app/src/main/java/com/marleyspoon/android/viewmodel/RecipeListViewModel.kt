@@ -3,6 +3,7 @@ package com.marleyspoon.android.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.marleyspoon.android.model.Recipe
+import com.marleyspoon.android.model.RecipeData
 import com.marleyspoon.android.model.network.ContentfulHelper
 
 /**
@@ -11,8 +12,8 @@ import com.marleyspoon.android.model.network.ContentfulHelper
  */
 
 class RecipeListViewModel : ViewModel() {
-    val recipes : LiveData<List<Recipe>> = ContentfulHelper().fetchAllRecipes()
+    val recipes : LiveData<List<RecipeData>> = ContentfulHelper().fetchAllRecipes()
 
 }
 
-class SingleRecipeViewModel(val recipe: Recipe) : ViewModel()
+class SingleRecipeViewModel(var recipe: RecipeData) : ViewModel()

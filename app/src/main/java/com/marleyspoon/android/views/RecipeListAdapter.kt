@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.marleyspoon.android.MainActivity
 import com.marleyspoon.android.databinding.AdapterListItemBinding
 import com.marleyspoon.android.model.Recipe
+import com.marleyspoon.android.model.RecipeData
 import com.marleyspoon.android.viewmodel.SingleRecipeViewModel
 
 
@@ -15,7 +16,7 @@ import com.marleyspoon.android.viewmodel.SingleRecipeViewModel
  * @author Akram Shokri
  */
 
-class RecipeListAdapter(private val list: List<Recipe>, private val handler: FragmentActivity?) :
+class RecipeListAdapter(private val list: List<RecipeData>, private val handler: FragmentActivity?) :
     RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -36,7 +37,7 @@ class RecipeListAdapter(private val list: List<Recipe>, private val handler: Fra
 
     class RecipeViewHolder(private val binding: AdapterListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(recipe: Recipe, handler: FragmentActivity?) {
+        fun bind(recipe: RecipeData, handler: FragmentActivity?) {
             binding.viewModel = SingleRecipeViewModel(recipe)
             if(handler != null) {
                 binding.handler = handler as MainActivity

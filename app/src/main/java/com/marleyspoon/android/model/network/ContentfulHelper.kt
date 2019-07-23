@@ -6,6 +6,7 @@ import com.contentful.java.cda.CDAClient
 import com.contentful.java.cda.CDAEntry
 import com.contentful.java.cda.LocalizedResource
 import com.marleyspoon.android.model.Recipe
+import com.marleyspoon.android.model.RecipeData
 import java.util.concurrent.Executors
 
 
@@ -20,7 +21,7 @@ class ContentfulHelper {
     private val client = contentDeliveryClient()
     private val executor = Executors.newSingleThreadExecutor()
 
-    private var recipeLiveData: MutableLiveData<List<Recipe>> = MutableLiveData()
+    private var recipeLiveData: MutableLiveData<List<RecipeData>> = MutableLiveData()
 
     fun contentDeliveryClient(): CDAClient {
         return CDAClient.builder()
@@ -29,7 +30,7 @@ class ContentfulHelper {
             .build()
     }
 
-    fun fetchAllRecipes(): LiveData<List<Recipe>> {
+    fun fetchAllRecipes(): LiveData<List<RecipeData>> {
         executor.execute {
             val data = callContentful()
             recipeLiveData.postValue(data)
@@ -38,7 +39,7 @@ class ContentfulHelper {
         return recipeLiveData
     }
 
-    fun callContentful(): List<Recipe> {
+    fun callContentful(): List<RecipeData> {
         val data = client.observeAndTransform(Recipe::class.java)
             .where("content_type", "recipe")
             .include(1)
@@ -61,7 +62,12 @@ class ContentfulHelper {
                 data.find { it.title == recipeTitle }?.chef = chefName
             }
         }
-        return data
+
+        val recipeDataList = ArrayList<RecipeData>()
+        for(i in 0 until data.size){
+            recipeDataList.add(RecipeData(data[i]))
+        }
+        return recipeDataList
     }
 
 

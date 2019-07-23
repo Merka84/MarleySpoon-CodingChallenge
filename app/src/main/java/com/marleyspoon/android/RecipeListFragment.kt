@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.marleyspoon.android.databinding.ListViewBinding
-import com.marleyspoon.android.model.Recipe
+import com.marleyspoon.android.model.RecipeData
 import com.marleyspoon.android.viewmodel.RecipeListViewModel
 import com.marleyspoon.android.views.RecipeListAdapter
 
@@ -28,7 +28,7 @@ class RecipeListFragment : Fragment(){
        binding.loadingProgress.visibility = View.VISIBLE
 
        viewModel = ViewModelProviders.of(this).get(RecipeListViewModel::class.java)
-       viewModel?.recipes?.observe(this, Observer<List<Recipe>>{
+       viewModel?.recipes?.observe(this, Observer<List<RecipeData>>{
            adapter = RecipeListAdapter(it, activity)
            binding.recipeList.adapter = adapter
            binding.loadingProgress.visibility = View.GONE
