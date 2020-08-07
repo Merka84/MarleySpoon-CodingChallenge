@@ -33,8 +33,3 @@ Here is the challange description.
 > Please send us a link to a hosted repository with your code. It can be hosted anywere (ex: Github, Gitlab, ...) as long as you provide us access.
 > You should include all the code necessary to run the app and documentation on how to do it.
   
-> ## Credentials
-
-> The **Space ID** is: `kk2bw5ojx476`
-> The **Environment ID** (if necessary) is: `master`
-> The **Access Token** is: `7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c`
